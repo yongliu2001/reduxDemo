@@ -8,12 +8,24 @@ import Footer from "./Footer";
 class Layout extends React.Component {
     constructor() {
         super();
+        this.state = {
+            title: "Welcome !"
+        };
+    }
+    onTitleChanged(title) {
+        this.setState({title});
     }
 
     render() {
+        // setTimeout(()=> {
+        //     this.setState({
+        //         title: "Welcome, Yong !"
+        //     })
+        // },2000);
+
         return (
             <div>
-                <Header />
+                <Header title={this.state.title} changeTitle={this.onTitleChanged.bind(this)} />
                 <Footer />
             </div>
         );
